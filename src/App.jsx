@@ -117,7 +117,7 @@ const s = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    padding: '48px 16px 24px',
+    padding: '8px 16px 24px',
     position: 'relative',
     overflow: 'hidden',
   },
@@ -153,7 +153,13 @@ const s = {
     zIndex: 1,
   },
   logo: {
-    marginBottom: -30,
+    width: '100%',
+    maxWidth: 340,
+    height: 150,
+    overflow: 'hidden',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   logoImg: {
     width: '100%',
