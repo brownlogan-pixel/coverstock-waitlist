@@ -153,7 +153,7 @@ const s = {
     zIndex: 1,
   },
   logo: {
-    marginBottom: 16,
+    marginBottom: -30,
   },
   logoImg: {
     width: '100%',
