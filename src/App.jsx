@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { supabase } from './lib/supabase';
+import logo from './logo.png';
 
 function formatPhone(raw) {
   const digits = raw.replace(/\D/g, '').slice(0, 10);
@@ -46,8 +47,7 @@ export default function App() {
       <div style={s.card}>
         {/* Logo */}
         <div style={s.logo}>
-          <div style={s.logoMark}>CS</div>
-          <span style={s.logoText}>CoverStock</span>
+          <img src={logo} alt="CoverStock" style={s.logoImg} />
         </div>
 
         {status === 'success' ? (
@@ -153,29 +153,11 @@ const s = {
     zIndex: 1,
   },
   logo: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: 10,
     marginBottom: 40,
   },
-  logoMark: {
-    width: 36,
-    height: 36,
-    borderRadius: 10,
-    background: 'linear-gradient(135deg, #7C3AED, #5B21B6)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: 13,
-    fontWeight: 900,
-    color: '#fff',
-    letterSpacing: -0.5,
-  },
-  logoText: {
-    fontSize: 20,
-    fontWeight: 800,
-    color: '#fff',
-    letterSpacing: -0.5,
+  logoImg: {
+    height: 72,
+    width: 'auto',
   },
   eyebrow: {
     fontSize: 12,
