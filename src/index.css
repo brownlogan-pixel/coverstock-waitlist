@@ -1,0 +1,11 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root {
+  height: 100%;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #07070F;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+input, button { font-family: inherit; }
