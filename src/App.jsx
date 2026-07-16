@@ -156,8 +156,9 @@ const s = {
     marginBottom: 40,
   },
   logoImg: {
-    height: 72,
+    height: 90,
     width: 'auto',
+    maxWidth: '100%',
   },
   eyebrow: {
     fontSize: 12,
