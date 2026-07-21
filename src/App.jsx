@@ -15,11 +15,12 @@ function toE164(formatted) {
 }
 
 export default function App() {
+  const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [status, setStatus] = useState('idle'); // idle | loading | success | duplicate | error
 
   const digits = phone.replace(/\D/g, '');
-  const ready = digits.length === 10;
+  const ready = name.trim().length > 0 && digits.length === 10;
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -27,7 +28,7 @@ export default function App() {
     setStatus('loading');
 
     const e164 = toE164(phone);
-    const { error } = await supabase.from('waitlist').insert({ phone: e164 });
+    const { error } = await supabase.from('waitlist').insert({ phone: e164, name: name.trim() });
 
     if (!error) {
       setStatus('success');
@@ -80,6 +81,17 @@ export default function App() {
             <p style={s.prizeLine}>🎁 One lucky sign-up wins $50 in wallet credits at launch.</p>
 
             <form onSubmit={handleSubmit} style={s.form}>
+              <div style={s.inputWrap}>
+                <span style={s.inputPrefix}>👤</span>
+                <input
+                  style={s.input}
+                  type="text"
+                  placeholder="Your name"
+                  value={name}
+                  onChange={e => { setStatus('idle'); setName(e.target.value); }}
+                  autoComplete="name"
+                />
+              </div>
               <div style={{ ...s.inputWrap, ...(status === 'duplicate' || status === 'error' ? s.inputWrapError : {}) }}>
                 <span style={s.inputPrefix}>📱</span>
                 <input
