@@ -55,9 +55,20 @@ export default function App() {
             <div style={s.successIcon}>✓</div>
             <div style={s.successTitle}>You're on the list.</div>
             <div style={s.successSub}>We'll text you when CoverStock is live in your area.</div>
+            <div style={s.successPrize}>
+              <span style={{ fontSize: 18, flexShrink: 0 }}>🎁</span>
+              <div>
+                <div style={{ ...s.successPrizeText, fontWeight: 700, marginBottom: 2, color: '#FFA0A0' }}>You're entered for the $50 giveaway.</div>
+                <div style={s.successPrizeText}>One waitlist member wins $50 in CoverStock Wallet credits at launch. Winner chosen randomly.</div>
+              </div>
+            </div>
           </div>
         ) : (
           <>
+            <div style={s.prizeBadge}>
+              <span>🎁</span>
+              <span style={s.prizeBadgeText}>$50 Credit Giveaway</span>
+            </div>
             <div style={s.eyebrow}>Coming soon</div>
             <h1 style={s.headline}>
               Skip the guessing.<br />Own your night.
@@ -66,6 +77,7 @@ export default function App() {
               CoverStock lets you buy, sell, and transfer nightlife covers — so you
               always know what you're paying before you get to the door.
             </p>
+            <p style={s.prizeLine}>🎁 One lucky sign-up wins $50 in wallet credits at launch.</p>
 
             <form onSubmit={handleSubmit} style={s.form}>
               <div style={{ ...s.inputWrap, ...(status === 'duplicate' || status === 'error' ? s.inputWrapError : {}) }}>
@@ -190,7 +202,48 @@ const s = {
     lineHeight: 1.65,
     textAlign: 'center',
     maxWidth: 360,
-    marginBottom: 36,
+    marginBottom: 14,
+  },
+  prizeBadge: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: 6,
+    background: 'linear-gradient(135deg, rgba(255,87,88,0.16), rgba(204,56,57,0.09))',
+    border: '1px solid rgba(255,87,88,0.32)',
+    borderRadius: 20,
+    padding: '5px 14px',
+    marginBottom: 14,
+  },
+  prizeBadgeText: {
+    fontSize: 11,
+    fontWeight: 700,
+    letterSpacing: 0.65,
+    textTransform: 'uppercase',
+    color: '#FF8080',
+  },
+  prizeLine: {
+    fontSize: 13,
+    color: '#FF8080',
+    textAlign: 'center',
+    marginBottom: 22,
+    lineHeight: 1.5,
+    opacity: 0.9,
+  },
+  successPrize: {
+    display: 'flex',
+    alignItems: 'flex-start',
+    gap: 10,
+    background: 'linear-gradient(135deg, rgba(255,87,88,0.13), rgba(204,56,57,0.07))',
+    border: '1px solid rgba(255,87,88,0.27)',
+    borderRadius: 12,
+    padding: '12px 16px',
+    textAlign: 'left',
+    maxWidth: 320,
+  },
+  successPrizeText: {
+    fontSize: 13,
+    color: '#FF9090',
+    lineHeight: 1.55,
   },
   form: {
     width: '100%',
